@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadenas como Objetos</title>
+</head>
+<body>
+<h1>Cadenas como Objetos</h1>
+<script>
+    let string = 'Esto es un texto';
+
+    //Longitud de un texto
+    let browserType = "Christian";
+    console.log(browserType.length);
+
+    //Extrayendo carácter de cadena
+    console.log(browserType[0]); // C
+    console.log(browserType[browserType.length-1]); //n
+
+    //Encontrar una subcadena
+    console.log(browserType.indexOf("ian")); // 6
+    console.log(browserType.indexOf("juan")) // -1
+    //Extraer la subcadena
+    console.log(browserType.slice(0,6)); //Christ
+    console.log(browserType.slice(6)); // ian;
+
+    //Mayúscylas o minúsculas
+
+    let myName = "Mi NomBre Es ChrisTian";
+
+    console.log(myName.toLocaleLowerCase()); // minuscula
+    console.log(myName.toLocaleUpperCase()); // nayuscula
+
+    //Actualizando parte de una cadena
+    console.log(browserType.replace('Christ', 'Sebast'));
+
+</script>
+</body>
+</html>
