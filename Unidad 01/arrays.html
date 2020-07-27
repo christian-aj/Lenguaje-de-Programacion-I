@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays o Matrices</title>
+</head>
+<body>
+<h1>Arreglos o matrices</h1>
+<script>
+    let shopping = ['leche', 'pan', 'azucar', 'aceite'];
+    console.log(shopping);
+    let secuence = [1,2,3,4,5,6,7,8,9];
+    let random = ['hola', true , 12, 21, ['a','b',1,2]];
+
+    //Accediendo y modificando elementos
+    //de una matriz
+    console.log(shopping[0]); // leche
+    shopping[0] = 'yogurt';
+    console.log(shopping);
+
+    //Encontrar la longitud de una matriz
+    console.log(secuence.length); // 9
+
+    for (var i = 0; i < secuence.length; i++) {
+        console.log(secuence[i]);
+    }
+
+    //conversion de matrices y cadenas
+    let myData = 'Perú,Brasil,Argentina,Colombia';
+    let country = myData.split(',');
+    console.log(country);
+
+    //de lo contrario
+    console.log(country.join(','));
+
+    let dogNames = ['Rocket','Flash','Bella','Slugger'];
+    dogNames.toString(); //Rocket,Flash,Bella,Slugger
+
+    //Agregar elementos de una matriz
+    let myArray = ['Christian','Pedro','Juan','Andrea'];
+
+    myArray.push('Luis');
+    console.log(myArray);
+    myArray.push('Andres', 'Marcos');
+    console.log(myArray);
+
+    //Remover Item
+    console.log(myArray.pop());
+    let removedItem = myArray.pop();
+    console.log(myArray);
+    console.log(removedItem);
+
+    //Agregar al inicio
+    myArray.unshift('Adriano');
+    console.log(myArray);
+    //Eliminar al inicio
+    myArray.shift();
+    console.log(myArray);
+</script>
+</body>
+</html>
