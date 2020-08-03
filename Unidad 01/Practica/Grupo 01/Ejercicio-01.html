@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar lista de frutas</title>
+</head>
+<body>
+<h1>Validar lista de frutas</h1>
+<input type="text" id="fruits">
+<button id="btnValidate">Validar</button>
+
+<script>
+    let fruitsValidate = document.querySelector('#fruits');
+    let btnValidate = document.querySelector('#btnValidate');
+
+    let fruits = ['pera','manzana','naranja','mandarina','uva','piña','fresa','ciruela','mango','lima'];
+
+    let counter = 0;
+
+    btnValidate.addEventListener("click",validator);
+
+    function validator() {
+
+        counter=0;
+
+        for (let i=0; i < fruits.length; i++) {
+            if (fruitsValidate.value === fruits[i]) {
+                counter++;
+                break;
+            }
+        }
+
+        if (counter > 0) {
+            alert("Si existe en la lista, de " + fruits.length + " frutas") ;
+        } else {
+            alert("No existe en la lista");
+        }
+
+        fruitsValidate.value = "";
+        fruitsValidate.focus();
+    }
+
+</script>
+</body>
+</html>

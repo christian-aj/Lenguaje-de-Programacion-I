@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Alumnos</title>
+</head>
+<body>
+<input type="text" id="student" placeholder="Nombre del Estudiante">
+<button id="submit">Guardar</button>
+<ol id="listStudent">
+</ol>
+
+<script>
+    let studentValue = document.querySelector('#student');
+    let btnSubmit = document.querySelector('#submit');
+    let listItem = document.querySelector('#listStudent');
+
+    let students = [];
+
+    btnSubmit.addEventListener('click', updateStudent);
+
+    function updateStudent() {
+        let item = document.createElement('li');
+        item.textContent = studentValue.value;
+        listItem.appendChild(item);
+    }
+
+</script>
+</body>
+</html>

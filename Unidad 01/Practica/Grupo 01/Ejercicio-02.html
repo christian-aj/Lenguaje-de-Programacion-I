@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion de Números</title>
+</head>
+<body>
+<input type="text" id="number">
+<select id="selectOption">
+    <option value="1">Binario</option>
+    <option value="2">Octal</option>
+    <option value="3">Hexadecimal</option>
+</select>
+<p id="result"></p>
+<script>
+
+    //declarar las variables para los elementos
+    let number = document.querySelector('#number');
+    let selectOption = document.querySelector('#selectOption');
+    let result = document.querySelector('#result');
+
+    selectOption.addEventListener('change', convertNumber);
+
+    function convertNumber() {
+
+        if (selectOption.value === '1') {
+            let data = Number(number.value);
+            result.textContent = data.toString(2);
+        }
+
+        if (selectOption.value === '2') {
+            let data = Number(number.value);
+            result.textContent = data.toString(8);
+        }
+
+        if (selectOption.value === '3') {
+            let data = Number(number.value);
+            result.textContent = data.toString(16);
+        }
+    }
+
+</script>
+</body>
+</html>
