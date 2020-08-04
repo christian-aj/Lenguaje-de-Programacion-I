@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 01 </title>
+</head>
+<body>
+<h1>Creación de Usuarios</h1>
+<input type="text" id="name" placeholder="Nombre Completo" style="width: 300px;">
+<button id="btnGenerator">Generar Usuario</button>
+<p id="userView"></p>
+
+<script>
+    let name = document.querySelector('#name');
+    let btnGenerator = document.querySelector('#btnGenerator');
+    let userView = document.querySelector('#userView');
+
+    btnGenerator.addEventListener('click', generator);
+
+    function generator() {
+        let user = name.value;
+        //let newUser = ;
+
+        console.log(user[0] + user.slice(user.indexOf(" ")+1));
+    }
+</script>
+</body>
+</html>
