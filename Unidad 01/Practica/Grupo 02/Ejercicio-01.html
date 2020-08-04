@@ -19,9 +19,10 @@
 
     function generator() {
         let user = name.value;
-        //let newUser = ;
-
-        console.log(user[0] + user.slice(user.indexOf(" ")+1));
+        let firtsName = user.slice(user.indexOf(" ") + 1);
+        let secondName = firtsName.slice(firtsName.indexOf(" ") + 1);
+        let newUser = user[0] + secondName;
+        console.log(newUser.toUpperCase());
     }
 </script>
 </body>

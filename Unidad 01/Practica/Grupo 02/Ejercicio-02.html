@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 02</title>
+</head>
+<body>
+<h1>Validar lista de compras</h1>
+<input type="text" id="element" placeholder="Artículo">
+<button id="btn">Validar</button>
+
+<script>
+    let element = document.querySelector('#element');
+    let btn = document.querySelector('#btn');
+
+    let compras = ['lapiz', 'plumon', 'libro', 'manzana', 'platos', 'mandarina'];
+
+    btn.addEventListener('click', validator);
+    let counter = 0;
+
+    function validator() {
+
+        counter = 0;
+
+        for (let i = 0; i < compras.length; i++) {
+            if (element.value === compras[i]) {
+                counter++;
+            }
+        }
+
+        if (counter > 0) {
+            alert("Si existe en la lista");
+        } else {
+            alert("No se encuentra en tu lista");
+        }
+    }
+</script>
+</body>
+</html>
