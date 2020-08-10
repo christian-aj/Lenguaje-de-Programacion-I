@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Condicionales</title>
+</head>
+<body>
+<h1>Condicionales</h1>
+
+<input type="text" placeholder="Colocar número 01" id="number1">
+<input type="text" placeholder="Colocar número 02" id="number2">
+<button>Validar</button>
+<p></p>
+
+<script>
+    //sintaxis
+    if (8 > 10) {
+        //código que se ejecuta si la condición es verdadera
+        alert("Esto es verdadero");
+    }
+
+    else {
+        //ejecuta si la condición es falsa
+        console.log("Esto es falso");
+    }
+
+    //capturamos las variables
+    let number1 = document.querySelector('#number1');
+    let number2 = document.querySelector('#number2');
+    let btn = document.querySelector('button');
+    let text = document.querySelector('p');
+
+    btn.addEventListener('click', validator);
+
+    function validator() {
+
+        if (Number(number1.value) > Number(number2.value)) {
+            text.textContent = number1.value + ' es el mayor';
+        } else {
+            text.textContent = number2.value + ' es el mayor';
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
