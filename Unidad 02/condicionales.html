@@ -20,42 +20,12 @@
         alert("Esto es verdadero");
     }
 
+    //Ejecuta otro código
+
     else {
         //ejecuta si la condición es falsa
         console.log("Esto es falso");
     }
-
-    //capturamos las variables
-    let number1 = document.querySelector('#number1');
-    let number2 = document.querySelector('#number2');
-    let number3 = document.querySelector('#number3');
-    let btn = document.querySelector('button');
-    let text = document.querySelector('p');
-
-    btn.addEventListener('click', validator);
-
-    function validator() {
-
-        //console.log(typeof(number1.value));
-        //console.log(typeof(Number(number1.value)));
-        let mayor;
-        let menor;
-
-        if (Number(number1.value) > Number(number2.value)  && Number(number1.value > Number(number3.value))) {
-            mayor = Number(number1.value);
-        }
-
-        if (Number(number2.value) > Number(number1.value) && Number(number2.value) > Number(number3.value)) {
-            mayor = Number(number2.value);
-        }
-
-        if (Number(number3.value) > Number(number1.value) && Number(number3.value) > Number(number3.value)) {
-            mayor = Number(number3.value);
-        }
-
-    }
-
-
 
 </script>
 </body>

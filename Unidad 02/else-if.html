@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Else if</title>
+</head>
+<body>
+
+<label for="weather">Seleccione el tipo de clima de hoy</label>
+<select id="weather">
+    <option value="">--Haga una elección</option>
+    <option value="1">Soleado</option>
+    <option value="2">Lluvioso</option>
+    <option value="3">Nevando</option>
+    <option value="4">Nublado</option>
+</select>
+<p></p>
+
+<script>
+    let selection = document.querySelector('select');
+    let text = document.querySelector('p');
+
+    selection.addEventListener('change', setWeather);
+
+    function setWeather() {
+
+        let choise = selection.value;
+
+        if (choise === '1') {
+            text.textContent = 'El día esta agradable y soleado hoy. ¡Use pantalones cortos! Ve a la playa o al parque y come un helado.';
+        }
+         else if (choise === '2') {
+                text.textContent = 'Está lloviendo, tome un abrigo para lluvia y un paraguas, y no se quede por fuera mucho tiempo.';
+         }
+        else if (choise === '3') {
+            text.textContent = 'Está nevando ─ ¡está congelando! Lo mejor es quedarse en casa con una taza caliente de chocolate, o hacer un muñeco de nieve.';
+        }
+        else if (choise === '4') {
+            text.textContent = 'No está lloviendo, pero el cielo está gris y nublado; podría llover en cualquier momento, así que lleve un saco solo por si acaso.';
+        }
+        else {
+            text.textContent = '';
+        }
+
+    }
+</script>
+</body>
+</html>
