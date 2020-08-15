@@ -24,21 +24,25 @@
 
     function setWeather() {
 
+        let temperature = 55;
+
         let choise = selection.value;
 
         if (choise === '1') {
-            text.textContent = 'El día esta agradable y soleado hoy. ¡Use pantalones cortos! Ve a la playa o al parque y come un helado.';
-        }
-         else if (choise === '2') {
-                text.textContent = 'Está lloviendo, tome un abrigo para lluvia y un paraguas, y no se quede por fuera mucho tiempo.';
-         }
-        else if (choise === '3') {
+
+            if (temperature < 86) {
+                text.textContent = 'El día esta agradable y soleado hoy. ¡Use pantalones cortos! Ve a la playa o al parque y come un helado.';
+            } else if (temperature <= 86) {
+                text.textContent = 'El día caluroso. ¡Use pantalones cortos! Ve a la playa o al parque y come un helado.';
+            }
+            
+        } else if (choise === '2') {
+            text.textContent = 'Está lloviendo, tome un abrigo para lluvia y un paraguas, y no se quede por fuera mucho tiempo.';
+        } else if (choise === '3') {
             text.textContent = 'Está nevando ─ ¡está congelando! Lo mejor es quedarse en casa con una taza caliente de chocolate, o hacer un muñeco de nieve.';
-        }
-        else if (choise === '4') {
+        } else if (choise === '4') {
             text.textContent = 'No está lloviendo, pero el cielo está gris y nublado; podría llover en cualquier momento, así que lleve un saco solo por si acaso.';
-        }
-        else {
+        } else {
             text.textContent = '';
         }
 
