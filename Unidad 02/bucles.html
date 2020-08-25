@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blucles en JavaScript</title>
+</head>
+<body>
+    <h1>Bucles en JS</h1>
+    <p>Los bluces son instrucciones que se repiten segun una condición.</p>
+    <p id="animals-text"></p>
+
+    <script>
+        //Sintaxys de los Bucles
+
+        // for (inicializador; condición-de-salida; expresión-final) {
+        //     // código a ejecutar
+        // }
+
+        for (let i = 1; i <= 20; i++) {
+            console.log(i);
+        }
+
+
+        let animals = ['tigre', 'leon', 'oso', 'alce', 'cocodrilo', 'koala'];
+        let info = 'Los animales son: ';
+        let textP = document.querySelector('#animals-text');
+
+        for (let i = 0; i < animals.length; i++) {
+
+            info += animals[i] + ', ';
+        }
+
+        textP.textContent = info;
+        
+    </script>
+</body>
+</html>
