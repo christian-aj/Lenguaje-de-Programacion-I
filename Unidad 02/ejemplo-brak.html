@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Break</title>
+</head>
+<body>
+<label for="search">Buscar por nombre</label>
+<input type="search" id="search">
+<button>Buscar</button>
+<p></p>
+
+<script>
+    let contact = ['Christian:933240664','Andrea:918234566','Jhonatan:923456764','Pedro:999123678'];
+    let text = document.querySelector("p");
+    let search = document.querySelector("input");
+    let btnSearch = document.querySelector("button");
+
+    btnSearch.addEventListener('click', function (){
+        let searchName = search.value;
+        search.value = "";
+        search.focus();
+
+        for (let i = 0; i < contact.length; i++) {
+            let splitContact = contact[i].split(":");
+            if (splitContact[i] === searchName) {
+                text.textContent = splitContact[0] + ' su número es :' + splitContact[1] + '.';
+                break;
+            } else {
+                text.textContent = 'No se encontró contacto.';
+            }
+        }
+    });
+</script>
+</body>
+</html>
