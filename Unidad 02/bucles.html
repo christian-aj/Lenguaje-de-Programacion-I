@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Bucles en JS</h1>
-    <p>Los bluces son instrucciones que se repiten segun una condición.</p>
+    <p>Los bucles son instrucciones que se repiten según una condición.</p>
     <p id="animals-text"></p>
 
     <script>
@@ -17,18 +17,22 @@
         //     // código a ejecutar
         // }
 
-        for (let i = 1; i <= 20; i++) {
+        for (let i = 1; i <= 30; i++) {
             console.log(i);
         }
 
 
-        let animals = ['tigre', 'leon', 'oso', 'alce', 'cocodrilo', 'koala'];
+        let animals = ['tigre', 'leon', 'oso', 'alce', 'cocodrilo', 'koala', 'puma', 'elefante'];
         let info = 'Los animales son: ';
         let textP = document.querySelector('#animals-text');
 
         for (let i = 0; i < animals.length; i++) {
 
-            info += animals[i] + ', ';
+            if (animals[i] === animals[animals.length - 1]) {
+                info += animals[i] + '.';
+            } else {
+                info += animals[i] + ', ';
+            }
         }
 
         textP.textContent = info;

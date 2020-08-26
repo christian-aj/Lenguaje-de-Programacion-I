@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios</title>
+</head>
+<body>
+<input type="text" placeholder="Ingrese cantidad">
+<button>Enviar</button>
+<p></p>
+
+<script>
+    let input = document.querySelector('input');
+    let btn = document.querySelector('button');
+    let para = document.querySelector('p');
+    let persons = [];
+
+    btn.addEventListener('click', function () {
+
+        let inputValue = input.value;
+
+        for (let i = 1; i <= inputValue; i++) {
+            let person = prompt("Ingrese la Persona " + i);
+            persons.push(person);
+        }
+
+        viewText();
+    });
+
+    function viewText() {
+
+        let info = "Las personas son ";
+        input.value = "";
+        input.focus();
+
+        for (let i = 0; i < persons.length; i++) {
+            if (persons[i] === persons[persons.length - 1]) {
+                info += 'y ' + persons[i] + '.';
+            } else if (persons[i] === persons[persons.length - 2]) {
+                info += persons[i] + ' ';
+            }
+            else {
+                info += persons[i] + ', ';
+            }
+        }
+        para.textContent = info;
+    }
+
+
+    let products = ['manzana', 'pera'];
+
+    for (let i = 0; i < products.length; i++) {
+        console.log(products[i]);
+    }
+
+</script>
+</body>
+</html>
