@@ -25,15 +25,17 @@
         for (let i = 0; i < contact.length; i++) {
 
             let splitContact = contact[i].split(":");
+
             if (splitContact[0] === searchName) {
                 text.textContent = splitContact[0] + ' su número es :' + splitContact[1] + '.';
-                console.log(splitContact[i]);
                 break;
+
             } else {
                 text.textContent = 'No se encontró contacto.';
             }
         }
     });
+
 </script>
 </body>
 </html>
