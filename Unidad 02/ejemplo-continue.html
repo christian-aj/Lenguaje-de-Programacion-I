@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Continue</title>
+</head>
+<body>
+<h1>Ejemplo continue</h1>
+<label for="input">Ingresar número</label>
+<input type="text" id="input">
+<button>Entero Cuadrados</button>
+<p></p>
+
+<script>
+    let input = document.querySelector('#input');
+    let btn = document.querySelector('button');
+    let text = document.querySelector('p');
+
+
+
+    btn.addEventListener('click', function (){
+
+        let num = input.value;
+
+        for (let i = 1; i <= num; i++) {
+            let sqRoot = Math.sqrt(i);
+
+            if (Math.floor(sqRoot) !== sqRoot) {
+                continue;
+            }
+
+            text.textContent += i + ' ';
+        }
+
+    });
+
+
+
+</script>
+</body>
+</html>
