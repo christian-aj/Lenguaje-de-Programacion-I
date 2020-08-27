@@ -15,12 +15,51 @@
 <fieldset>
     <legend>Productos</legend>
     <ol id="listProducts"></ol>
+    <p id="total"></p>
 </fieldset>
 <fieldset>
     <legend>Pagos</legend>
     <input type="text" placeholder="Monto S/" id="pay">
     <button id="btnPay">Pagar</button>
-    <p></p>
+    <p id="rest"></p>
 </fieldset>
+
+<script>
+
+    let productName = document.querySelector('#productName');
+    let cantProduct = document.querySelector('#cantProduct');
+    let priceProduct = document.querySelector('#priceProduct');
+    let btnSave = document.querySelector('#btnSave');
+
+    let listProducts = document.querySelector('#listProducts');
+
+    let pay = document.querySelector('#pay');
+    let btnPay = document.querySelector('#btnPay');
+
+    let rest = document.querySelector('#rest');
+    let total = document.querySelector('#total');
+
+    let totalP = 0;
+
+    btnSave.addEventListener('click', function () {
+
+        let prod = productName.value;
+        let cant = cantProduct.value;
+        let pri = priceProduct.value;
+
+        let priceT = Number(cant) * Number(pri);
+
+        let listItem = document.createElement('li');
+        listItem.textContent = prod + '\n --' + cant + '\n --' + 'S/ ' + priceT;
+
+        totalP += priceT;
+        listProducts.appendChild(listItem);
+
+        total.textContent = totalP;
+
+    });
+
+
+</script>
 </body>
 </html>
