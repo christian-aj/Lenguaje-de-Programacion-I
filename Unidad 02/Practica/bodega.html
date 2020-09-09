@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bodega FISI UNAP</title>
+</head>
+<body>
+<fieldset>
+    <legend>Productos</legend>
+    <input type="text" id="productName" placeholder="Producto">
+    <select id="productCategory">
+        <option value="1">Alimentos</option>
+        <option value="2">Bebidas</option>
+        <option value="3">Ropa</option>
+        <option value="4">Tecnología</option>
+    </select>
+    <input type="number" id="productPrice" placeholder="Precio S/">
+    <input type="number" id="productItems" placeholder="Cantidad">
+    <button id="btnSave">Guardar</button>
+</fieldset>
+
+<fieldset>
+    <legend>Ventas</legend>
+    <select id="categorySales">
+        <option value="1">Alimentos</option>
+        <option value="2">Bebidas</option>
+        <option value="3">Ropa</option>
+        <option value="4">Tecnología</option>
+    </select>
+    <select id="productSales"></select>
+    <input type="number" id="cantidadSales" placeholder="Cantidad">
+    <button id="btnSales">Enviar</button>
+</fieldset>
+
+<fieldset>
+    <legend>Productos Ventas</legend>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Precio Und.</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        </thead>
+        <tbody id="productRow">
+        </tbody>
+        <tr>
+            <th colspan="4">Total</th>
+            <td id="totalSales"></td>
+        </tr>
+
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>Pagos</legend>
+    <input type="number" id="productPay" placeholder="Monto S/">
+    <button id="btnPay">Pagar</button>
+    <p id="payResult"></p>
+</fieldset>
+
+<style>
+    * {
+        font-size: 1rem;
+        font-family: Helvetica, sans-serif;
+    }
+</style>
+
+<script>
+
+    let btnSave = document.getElementById('btnSave');
+    let categorySales = document.getElementById('categorySales');
+    let productSales = document.getElementById('productSales');
+    let btnSales = document.getElementById('btnSales');
+    let productRow = document.getElementById('productRow');
+    let totalSales = document.getElementById('totalSales');
+    let productPay = document.getElementById('productPay');
+    let btnPay = document.getElementById('btnPay');
+    let payResult = document.getElementById('payResult');
+
+    let products = [];
+    let productName;
+    let productCategory;
+    let productPrice = 0;
+    let productItems = 0;
+    let itemSelect;
+    let total = 0;
+    let item = 0;
+
+    btnSave.addEventListener('click', addProducts);
+
+    categorySales.addEventListener('change', updateSelectProducts);
+
+    btnSales.addEventListener('click', salesProducts);
+
+    btnPay.addEventListener('click', productsPay);
+
+    function addProducts() {
+
+        let product = [];
+        productName = document.getElementById('productName').value;
+        productCategory = document.getElementById('productCategory').value;
+        productPrice = document.getElementById('productPrice').value;
+        productItems = document.getElementById('productItems').value;
+
+
+        if (productName === "" || productItems === "" || productPrice === "") {
+            alert("Debe agregar datos del producto");
+        } else {
+            product.push(productName, productCategory, productPrice, productItems);
+            products.push(product);
+
+            alert("Producto agregado correctamente!!!");
+            updateSelectProducts();
+        }
+
+        document.getElementById('productName').value = "";
+        document.getElementById('productCategory').value = 1;
+        document.getElementById('productPrice').value = "";
+        document.getElementById('productItems').value = "";
+    }
+
+    function updateSelectProducts() {
+
+        let opt = categorySales.value;
+
+        while (productSales.firstChild) {
+            productSales.removeChild(productSales.firstChild);
+        }
+
+        switch (opt) {
+            case '1':
+                for (let i = 0; i < products.length; i++) {
+
+                    if (products[i][1] === "1") {
+                        itemSelect = document.createElement('option');
+                        itemSelect.textContent = products[i][0];
+                        productSales.appendChild(itemSelect);
+                    }
+                }
+                break;
+
+            case '2':
+                for (let i = 0; i < products.length; i++) {
+
+                    if (products[i][1] === "2") {
+                        let itemSelect = document.createElement('option');
+                        itemSelect.textContent = products[i][0];
+                        productSales.appendChild(itemSelect);
+                    }
+                }
+                break;
+
+            case '3':
+                for (let i = 0; i < products.length; i++) {
+
+                    if (products[i][1] === "3") {
+                        let itemSelect = document.createElement('option');
+                        itemSelect.textContent = products[i][0];
+                        productSales.appendChild(itemSelect);
+                    }
+                }
+                break;
+
+            case '4':
+                for (let i = 0; i < products.length; i++) {
+
+                    if (products[i][1] === "4") {
+                        let itemSelect = document.createElement('option');
+                        itemSelect.textContent = products[i][0];
+                        productSales.appendChild(itemSelect);
+                    }
+                }
+                break;
+        }
+    }
+
+    function salesProducts() {
+
+        let cantidadSales = Number(document.getElementById('cantidadSales').value);
+
+        let row = document.createElement('tr');
+
+
+        for (let i = 0; i < 5; i++) {
+
+            let td = document.createElement('td');
+
+            switch (i) {
+                case 0:
+                    item += 1;
+                    td.textContent = item;
+                    row.appendChild(td);
+                    break;
+
+                case 1:
+                    td.textContent = productSales.value;
+                    row.appendChild(td);
+                    break;
+
+                case 2:
+                    for (let i = 0; i < products.length; i++) {
+                        if (productSales.value === products[i][0]) {
+                            td.textContent = products[i][2];
+                            row.appendChild(td);
+                            break;
+                        }
+                    }
+                    break;
+
+                case 3:
+                    td.textContent = Number(cantidadSales).toFixed(2);
+                    row.appendChild(td);
+                    break;
+
+                case 4:
+                    for (let i = 0; i < products.length; i++) {
+
+                        if (productSales.value === products[i][0]) {
+
+                            if (cantidadSales <= Number(products[i][3])) {
+                                let subtotal = products[i][2] * Number(cantidadSales);
+                                products[i][3] -= cantidadSales;
+                                total += subtotal;
+                                td.textContent = subtotal.toFixed(2);
+                                row.appendChild(td);
+
+                                productRow.appendChild(row);
+                                totalSales.textContent = total.toFixed(2);
+
+                            } else {
+                                alert("No hay suficiente Stock");
+                                break;
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+
+    }
+
+    function productsPay() {
+        if (item <= 0) {
+            alert("Debe agregar productos !!!");
+        } else {
+
+            if (Number(productPay.value) < total) {
+                alert('El monto es insuficiente');
+                productPay.value = "";
+                productPay.focus();
+            } else {
+                payResult.textContent = 'Vuelto S/ ' + ((productPay.value) - total);
+            }
+
+        }
+    }
+
+</script>
+
+</body>
+</html>

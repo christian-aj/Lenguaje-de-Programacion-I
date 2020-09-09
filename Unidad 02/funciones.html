@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funciones</title>
+</head>
+<body>
+<h1>Funciones</h1>
+
+<input type="text" id="number1">
+<input type="text" id="number2">
+<button>Calcular</button>
+<p></p>
+<script>
+
+    let n1 = document.querySelector('#number1');
+    let n2 = document.querySelector('#number2');
+    let par = document.querySelector('p');
+    let btn = document.querySelector('button');
+
+    let res = 0;
+
+    btn.addEventListener('click', validarInput);
+
+    function sumar() {
+
+        res = Number(n1.value) + Number(n2.value);
+        par.textContent = 'Las uma es ' + res;
+
+    }
+
+    function validarInput() {
+
+        if (n1.value < 0) {
+            par.textContent = "No se permite valores negativos";
+        } else if (n2.value < 0){
+            par.textContent = "No se permite valores negativos";
+        } else {
+            sumar();
+        }
+    }
+
+    function sumar(a,b,c) {
+        return a + b + c;
+    }
+
+    console.log(sumar(4,5));
+
+</script>
+</body>
+</html>

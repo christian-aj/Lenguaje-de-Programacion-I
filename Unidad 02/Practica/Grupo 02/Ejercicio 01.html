@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bodega FISI UNAP</title>
+</head>
+<body>
+
+<fieldset>
+    <legend>Bodega FISI-UNAP</legend>
+    <input type="text" id="cantProducts" placeholder="Cantidad">
+    <button id="btnSend">Enviar</button>
+</fieldset>
+
+<fieldset>
+    <legend>Stock</legend>
+    <table>
+        <th>#</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <tbody id="tableItem">
+
+        </tbody>
+    </table>
+</fieldset>
+
+<fieldset>
+    <legend>Venta</legend>
+    <select id="productsSales"></select>
+    <input type="text" id="cantSales" placeholder="Cantidad">
+    <button id="btnSales">Vender</button>
+</fieldset>
+
+<script>
+
+    let cantProducts = document.getElementById('cantProducts');
+    let btnSend = document.getElementById('btnSend');
+    let tableItems = document.getElementById('tableItem');
+
+    let productItem = [];
+    let products = [];
+    let row = 4;
+    let item = 0;
+
+    btnSend.addEventListener('click', addProducts);
+
+    function addProducts() {
+
+        for (let i = 1; i <= cantProducts.value; i++) {
+
+            productItem = [];
+            alert("Producto Nº " + (i));
+
+            let nameProduct = prompt("Ingrese el producto");
+            let priceProduct = prompt("Ingrese el precio");
+
+            while (priceProduct < 0) {
+                priceProduct = prompt("Ingrese el precio");
+            }
+
+            let itemProduct = prompt("Ingrese la cantidad");
+
+            productItem.push(nameProduct, Number(priceProduct), Number(itemProduct));
+            products.push(productItem);
+
+            viewVProducts();
+
+        }
+    }
+
+    function viewVProducts() {
+
+
+        while (tableItems.firstChild) {
+            tableItems.removeChild(tableItems.firstChild);
+        }
+
+        item = 0;
+
+        for (let i = 0; i < products.length; i++) {
+
+            let tr = document.createElement('tr');
+
+            for (let y = 1; y <= 4; y++) {
+
+                switch (y) {
+
+                    case 1:
+                        item += 1;
+                        var td = document.createElement('td');
+                        td.textContent = item;
+                        tr.appendChild(td);
+                        break;
+
+                    case 2:
+                        var td = document.createElement('td');
+                        td.textContent = products[i][0];
+                        tr.appendChild(td);
+                        break;
+
+                    case 3:
+                        var td = document.createElement('td');
+                        td.textContent = products[i][1];
+                        tr.appendChild(td);
+                        break;
+
+                    case 4:
+                        var td = document.createElement('td');
+                        td.textContent = products[i][2];
+                        tr.appendChild(td);
+                        break;
+                }
+            }
+
+            tableItems.appendChild(tr);
+        }
+    }
+
+
+</script>
+</body>
+</html>
+
+<style>
+    * {
+        font-size: 1rem;
+        font-family: Helvetica, sans-serif;
+    }
+</style>
