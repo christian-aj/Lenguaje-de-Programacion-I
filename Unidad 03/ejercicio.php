@@ -11,15 +11,15 @@
 <h1>Ejercicios de PHP</h1>
 
 <form action="calcular.php" method="post">
-    <input type="text" placeholder="Ingrese un número">
-    <input type="text" placeholder="Ingrese otro numero">
-    <select name="" id="">
-        <option value="">Sumar</option>
-        <option value="">Restar</option>
-        <option value="">Multiplicar</option>
-        <option value="">Dividir</option>
+    <input type="text" placeholder="Ingrese un número" name="number1">
+    <input type="text" placeholder="Ingrese otro numero" name="number2">
+    <select name="calcular">
+        <option value="1">Sumar</option>
+        <option value="2">Restar</option>
+        <option value="3">Multiplicar</option>
+        <option value="4">Dividir</option>
     </select>
-    <button type="submit">Enviar</button>
+    <button type="submit" name="enviar">Enviar</button>
 </form>
 </body>
 </html>
