@@ -76,7 +76,21 @@ include 'db.php';
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
 
+                    $query = "SELECT * FROM persona";
+                    $result = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo $row['nombres']; ?></td>
+                            <td><?php echo $row['apellidos']; ?></td>
+                            <td><?php echo $row['documento']; ?></td>
+                            <td><?php echo $row['correo']; ?></td>
+                            <td><?php echo $row['fecha']; ?></td>
+                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
