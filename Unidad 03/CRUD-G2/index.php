@@ -1,3 +1,8 @@
+<?php
+
+include 'db.php';
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -19,5 +24,42 @@
     <button type="submit" name="enviar">Enviar</button>
 </form>
 
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Documento</th>
+        <th>Email</th>
+        <th>Fecha</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <?php
+
+    $query = "SELECT * FROM alumno";
+    $resultado = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_assoc($resultado)) {
+    ?>
+
+        <tr>
+            <td><?php echo $row['id']; ?></td>
+            <td><?php echo $row['nombres']; ?></td>
+            <td><?php echo $row['apellidos']; ?></td>
+            <td><?php echo $row['documento']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['fecha']; ?></td>
+        </tr>
+
+    <?php
+
+    }
+    ?>
+
+    </tbody>
+</table>
 </body>
 </html>
