@@ -30,6 +30,7 @@ include 'db.php';
     <th>Apellidos</th>
     <th>Correo</th>
     <th>Fecha</th>
+    <th>Acción</th>
     </thead>
     <tbody>
 
@@ -46,6 +47,10 @@ include 'db.php';
         <th><?php echo $row['apellidos']; ?></th>
         <th><?php echo $row['correo']; ?></th>
         <th><?php echo $row['fecha']; ?></th>
+        <th>
+            <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+            <a href="eliminar.php?id=<?php echo $row['id']; ?>">Eliminar</a>
+        </th>
     </tr>
 
     <?php } ?>
